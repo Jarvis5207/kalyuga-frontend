@@ -7,209 +7,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
   <style>
     body {
-      background: url('your-smoke-effect.gif') center/cover no-repeat fixed;
-      color: crimson;
+      background: url("https://i.imgur.com/qIufhof.png") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Creepster', cursive;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      
+      color: #ff0000;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 4em;
+      text-shadow: 2px 2px 5px black;
     }
     form {
-        background: url('blood-splatter.gif') fixed, no-repeat fixed;
-    }
-
-    .ghost {
-      position: absolute;
-      top: 10%;
-      left: -100px;
-      width: 80px;
-      animation: floatGhost 30s linear infinite;
-      opacity: 0.3;
-      z-index: 0;
-    }
-
-    @keyframes floatGhost {
-      0% { left: -100px; }
-      100% { left: 110%; }
-    }
-
-    .form-container {
-      max-width: 480px;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(0, 0, 0, 0.8);
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
-      z-index: 1;
+      border-radius: 10px;
+      display: inline-block;
     }
-
-    h2 {
-      text-align: center;
-      font-size: 36px;
-      color: #ff0000;
-      text-shadow: 0 0 10px red, 0 0 30px crimson;
-      animation: glitch 1s infinite;
-    }
-
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px red; }
-      20% { text-shadow: -2px -2px lime; }
-      40% { text-shadow: 2px -2px blue; }
-      60% { text-shadow: -2px 2px yellow; }
-      80% { text-shadow: 0 0 10px red; }
-      100% { text-shadow: 2px 2px red; }
-    }
-
-    label {
-      font-size: 18px;
-      color: #ff5e00;
-      margin-top: 10px;
+    input, textarea, button {
       display: block;
-    }
-
-    input, textarea {
-      width: 100%;
+      margin: 10px auto;
       padding: 10px;
-      margin-top: 5px;
-      background-color: #1c1c1c;
-      border: 1px solid crimson;
-      border-radius: 6px;
-      color: white;
-      font-size: 16px;
-      animation: possessed 0.3s infinite alternate;
-    }
-
-    @keyframes possessed {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(1deg); }
-      100% { transform: rotate(-1deg); }
-    }
-
-    input:focus, textarea:focus {
-      box-shadow: 0 0 20px crimson;
-      transform: scale(1.05);
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #770c00;
       border: none;
+      border-radius: 5px;
+      width: 80%;
+    }
+    button {
+      background-color: #ff0000;
       color: white;
-      font-size: 20px;
-      font-family: 'Creepster', cursive;
-      border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 0 20px red;
-      letter-spacing: 2px;
-      transition: all 0.3s ease;
     }
-
     button:hover {
-      background-color: #e74c3c;
-      transform: scale(1.1);
-      animation: shakeButton 0.5s ease-in-out infinite, pulseButton 1.5s ease-out infinite;
-    }
-
-    @keyframes shakeButton {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
-    }
-
-    @keyframes pulseButton {
-      0% { box-shadow: 0 0 10px red; }
-      50% { box-shadow: 0 0 40px crimson; }
-      100% { box-shadow: 0 0 10px red; }
-    }
-
-    button:active {
-      background-color: #9b2929;
-      
-    }
-
-    
-
-    .footer {
-      text-align: center;
-      margin-top: 15px;
-      color: #ff5e00;
-      font-size: 12px;
+      background-color: #990000;
     }
   </style>
 </head>
 <body>
-  <img src="ghost.png" class="ghost" height="300" width="1050" />
-  <audio autoplay loop>
-    <source src="ambient-horror.mp3" type="audio/mpeg" />
-  </audio>
-  <audio id="hoverSound" src="whisper.mp3"></audio>
-  <audio id="submitSound" src="scream.mp3"></audio>
+  <h1>Whisper Your Complaint Into the Void</h1>
+  <form id="complaint-form" enctype="multipart/form-data">
+    <input type="text" id="name" name="name" placeholder="Your Name" required />
+    <input type="number" id="age" name="age" placeholder="Your Age" required />
+    <textarea id="problem" name="problem" placeholder="Describe your problem..." required></textarea>
+    <input type="file" id="photo" name="photo" accept="image/*" required />
+    <button type="submit">Submit to the Void</button>
+  </form>
 
-  <div class="form-container">
-    <h2>Complaint TO Gods</h2>
-    <form id="complaint-form" enctype="multipart/form-data">
-      <label for="name">Full Name Of Criminal :</label>
-      <input type="text" id="name" name="name" required />
+  <audio id="hoverSound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+  <audio id="submitSound" src="https://www.fesliyanstudios.com/play-mp3/6661"></audio>
 
-      <label for="age">Age of Criminal:</label>
-      <input type="number" id="age" name="age" required />
+  <script>
+    const button = document.querySelector("button");
+    const hoverSound = document.getElementById("hoverSound");
+    const submitSound = document.getElementById("submitSound");
 
-      <label for="problem">Problem Details:</label>
-      <textarea id="problem" name="problem" rows="4" required></textarea>
+    button.addEventListener("mouseenter", () => hoverSound.play());
+    button.addEventListener("click", () => submitSound.play());
 
-      <label for="photo">Upload Photo Of Criminal:</label>
-      <input type="file" id="photo" name="photo" required />
+    document.getElementById('complaint-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      let formData = new FormData(this);
 
-      <button type="submit">Bleed It Out</button>
-    </form>
-    <div class="footer">
-      <p>&copy; 2025 Kalyuga. All rights reserved. This form is monitored by unseen eyes.</p>
-    </div>
-  </div>
+      try {
+        const BACKEND_URL = "https://kalyuga-backend-production.up.railway.app";
 
-<script>
-  const button = document.querySelector("button");
-  const hoverSound = document.getElementById("hoverSound");
-  const submitSound = document.getElementById("submitSound");
+        const response = await fetch(`${BACKEND_URL}/submit-complaint`, {
+          method: "POST",
+          body: formData,
+        });
 
-  button.addEventListener("mouseenter", () => hoverSound.play());
-  button.addEventListener("click", () => submitSound.play());
+        const result = await response.json();
 
-  document.getElementById('complaint-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    let formData = new FormData(this);
-
-    try {
-      // 🌍 change this to your deployed backend URL
-      const BACKEND_URL = "https://kalyuga-backend-production.up.railway.app";
-
-      const response = await fetch(`${BACKEND_URL}/submit-complaint`, {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        // ✅ backend save successful → redirect to kalki.html
-        window.location.href = "kalki.html";
-      } else {
-        alert(result.message || "The void rejected your complaint.");
+        if (response.ok) {
+          window.location.href = "kalki.html";
+        } else {
+          if (result.message && result.message.includes("Only image files allowed")) {
+            alert("❌ Sirf image file (jpg, png, gif, webp) upload karne ki ijazat hai.");
+          } else if (result.message && result.message.includes("File too large")) {
+            alert("⚠️ Photo 10MB se chhoti honi chahiye.");
+          } else {
+            alert(result.message || "The void rejected your complaint.");
+          }
+        }
+      } catch (error) {
+        alert("⚠️ Server is sleeping in darkness...");
       }
-    } catch (error) {
-      alert("⚠️ Server is sleeping in darkness...");
-    }
-  });
-</script>
-
+    });
+  </script>
 </body>
 </html>
