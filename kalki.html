@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalki's Arrival</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, #FFD700, #000000);
+      color: white;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 70px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 215, 0, 0.7);
+      color: #FFD700;
+      animation: fadeIn 5s ease-out forwards;
+    }
+    .dialogue {
+      font-size: 24px;
+      font-style: italic;
+      color: #f39c12;
+      opacity: 0;
+      animation: showDialogue 10s ease-in-out infinite;
+    }
+    .animated-text {
+      font-size: 30px;
+      font-weight: bold;
+      color: #e74c3c;
+      opacity: 0;
+      animation: appearText 5s forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes showDialogue {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    @keyframes appearText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .kalki-image {
+      margin-top: 20px;
+      width: 200px;
+      border-radius: 10px;
+      opacity: 0;
+      animation: fadeInImage 5s ease-out forwards;
+    }
+    @keyframes fadeInImage {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Kalki Has Arrived</h1>
+    <div class="dialogue">
+      <p>"I have come to end Kalyuga, the darkness will soon fade."</p>
+    </div>
+    <div class="animated-text">
+      <p>"The time has come to restore Dharma, to cleanse the world of evil."</p>
+    </div>
+    <img src="kalki-image.jpg" alt="Kalki Avatar" class="kalki-image">
+  </div>
+
+  <script>
+    window.onload = function() {
+      // Show Kalki's image with a fade-in effect
+      setTimeout(() => {
+        document.querySelector('.kalki-image').style.opacity = 1;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
