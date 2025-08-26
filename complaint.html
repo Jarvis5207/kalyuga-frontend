@@ -176,37 +176,40 @@
     </div>
   </div>
 
-  <script>
-    const button = document.querySelector("button");
-    const hoverSound = document.getElementById("hoverSound");
-    const submitSound = document.getElementById("submitSound");
+<script>
+  const button = document.querySelector("button");
+  const hoverSound = document.getElementById("hoverSound");
+  const submitSound = document.getElementById("submitSound");
 
-   button.addEventListener("mouseenter", () => hoverSound.play());
-    button.addEventListener("click", () => submitSound.play());
+  button.addEventListener("mouseenter", () => hoverSound.play());
+  button.addEventListener("click", () => submitSound.play());
 
-    document.getElementById('complaint-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      let formData = new FormData(this);
+  document.getElementById('complaint-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    let formData = new FormData(this);
 
-      try {
-        const response = await fetch('http://localhost:5000/submit-complaint', {  // 🔥 backend API
-         method: 'POST',
-          body: formData
-        });
+    try {
+      // 🌍 change this to your deployed backend URL
+      const BACKEND_URL = "https://your-app-name.onrender.com";
 
-        const result = await response.json();
+      const response = await fetch(`${BACKEND_URL}/submit-complaint`, {
+        method: "POST",
+        body: formData,
+      });
 
-        if (response.ok) {
-          // ✅ backend save successful → kalki.html pe redirect
-          window.location.href = "kalki.html";
-        } else {
-          alert(result.message || "The void rejected your complaint.");
-        }
+      const result = await response.json();
 
-      } catch (error) {
-        alert("Server is sleeping in darkness...");
+      if (response.ok) {
+        // ✅ backend save successful → redirect to kalki.html
+        window.location.href = "kalki.html";
+      } else {
+        alert(result.message || "The void rejected your complaint.");
       }
-    });
-  </script>
+    } catch (error) {
+      alert("⚠️ Server is sleeping in darkness...");
+    }
+  });
+</script>
+
 </body>
 </html>
